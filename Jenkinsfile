@@ -23,11 +23,11 @@ pipeline {
                 script {
                     if (env.GIT_BRANCH == 'origin/main') {
                         sh '''
-                        docker build -t stratcastor/duo-jenk:latest -t stratcastor/duo-jenk:v${BUILD_NUMBER} .
+                        docker build -t harunwa/duo-jenk:latest -t stratcastor/duo-jenk:v${BUILD_NUMBER} .
                         '''
                     } else if (env.GIT_BRANCH == 'origin/dev') {
                         sh '''
-                        docker build -t stratcastor/duo-jenk:latest -t stratcastor/duo-jenk:v${BUILD_NUMBER} .
+                        docker build -t harunwa/duo-jenk:latest -t stratcastor/duo-jenk:v${BUILD_NUMBER} .
                         '''
                     } else {
                         sh'echo "Unrecogognised branch"'
@@ -40,13 +40,13 @@ pipeline {
                 script {
                     if (env.GIT_BRANCH == 'origin/main') {
                         sh '''
-                        docker push stratcastor/duo-jenk:latest
-                        docker push stratcastor/duo-jenk:v${BUILD_NUMBER}
+                        docker push harunwa/duo-jenk:latest
+                        docker push harunwa/duo-jenk:v${BUILD_NUMBER}
                         '''
                     } else if (env.GIT_BRANCH == 'origin/dev') {
                         sh '''
-                        docker push stratcastor/duo-jenk:latest
-                        docker push stratcastor/duo-jenk:v${BUILD_NUMBER}
+                        docker push harunwa/duo-jenk:latest
+                        docker push harunwa/duo-jenk:v${BUILD_NUMBER}
                         '''
                     } else {
                         sh'echo "Unrecogognised branch"'
